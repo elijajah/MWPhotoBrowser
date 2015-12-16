@@ -10,9 +10,7 @@
 #import "MWPhoto.h"
 #import "MWGridViewController.h"
 
-@interface MWGridCell : UICollectionViewCell
-{
-}
+@interface MWGridCell : UICollectionViewCell {}
 
 @property (nonatomic, weak) MWGridViewController *gridController;
 @property (nonatomic) NSUInteger index;

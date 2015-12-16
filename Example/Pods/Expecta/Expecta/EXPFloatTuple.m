@@ -30,10 +30,11 @@
     return NO;
 }
 
-- (NSUInteger)hash {
+- (NSUInteger)hash
+{
     NSUInteger prime = 31;
     NSUInteger hash = 0;
-    for (int i = 0; i < self.size; i++) {
+    for (int i=0; i<self.size; i++) {
         hash = prime * hash + (NSUInteger)self.values[i];
     }
     return hash;

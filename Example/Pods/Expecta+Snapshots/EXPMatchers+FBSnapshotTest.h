@@ -15,9 +15,7 @@
 extern void setGlobalReferenceImageDir(char *reference);
 
 EXPMatcherInterface(haveValidSnapshot, (void));
-
 EXPMatcherInterface(recordSnapshot, (void));
 
-EXPMatcherInterface(haveValidSnapshotNamed, (NSString * snapshot));
-
-EXPMatcherInterface(recordSnapshotNamed, (NSString * snapshot));
+EXPMatcherInterface(haveValidSnapshotNamed, (NSString *snapshot));
+EXPMatcherInterface(recordSnapshotNamed, (NSString *snapshot));

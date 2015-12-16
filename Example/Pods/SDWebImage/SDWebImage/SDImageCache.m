@@ -18,8 +18,7 @@ static NSData *kPNGSignatureData = nil;
 
 BOOL ImageDataHasPNGPreffix(NSData *data);
 
-BOOL ImageDataHasPNGPreffix(NSData *data)
-{
+BOOL ImageDataHasPNGPreffix(NSData *data) {
     NSUInteger pngSignatureLength = [kPNGSignatureData length];
     if ([data length] >= pngSignatureLength) {
         if ([[data subdataWithRange:NSMakeRange(0, pngSignatureLength)] isEqualToData:kPNGSignatureData]) {
@@ -40,8 +39,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data)
 @end
 
 
-@implementation SDImageCache
-{
+@implementation SDImageCache {
     NSFileManager *_fileManager;
 }
 
@@ -203,11 +201,11 @@ BOOL ImageDataHasPNGPreffix(NSData *data)
 
 - (BOOL)diskImageExistsWithKey:(NSString *)key {
     BOOL exists = NO;
-
+    
     // this is an exception to access the filemanager on another queue than ioQueue, but we are using the shared instance
     // from apple docs on NSFileManager: The methods of the shared NSFileManager object can be called from multiple threads safely.
     exists = [[NSFileManager defaultManager] fileExistsAtPath:[self defaultCachePathForKey:key]];
-
+    
     return exists;
 }
 
@@ -330,27 +328,27 @@ BOOL ImageDataHasPNGPreffix(NSData *data)
 }
 
 - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(SDWebImageNoParamsBlock)completion {
-
+    
     if (key == nil) {
         return;
     }
-
+    
     [self.memCache removeObjectForKey:key];
-
+    
     if (fromDisk) {
         dispatch_async(self.ioQueue, ^{
             [_fileManager removeItemAtPath:[self defaultCachePathForKey:key] error:nil];
-
+            
             if (completion) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion();
                 });
             }
         });
-    } else if (completion) {
+    } else if (completion){
         completion();
     }
-
+    
 }
 
 - (void)setMaxMemoryCost:(NSUInteger)maxMemoryCost {
@@ -369,7 +367,8 @@ BOOL ImageDataHasPNGPreffix(NSData *data)
     [self clearDiskOnCompletion:nil];
 }
 
-- (void)clearDiskOnCompletion:(SDWebImageNoParamsBlock)completion {
+- (void)clearDiskOnCompletion:(SDWebImageNoParamsBlock)completion
+{
     dispatch_async(self.ioQueue, ^{
         [_fileManager removeItemAtPath:self.diskCachePath error:nil];
         [_fileManager createDirectoryAtPath:self.diskCachePath
@@ -429,7 +428,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data)
             currentCacheSize += [totalAllocatedSize unsignedIntegerValue];
             [cacheFiles setObject:resourceValues forKey:fileURL];
         }
-
+        
         for (NSURL *fileURL in urlsToDelete) {
             [_fileManager removeItemAtURL:fileURL error:nil];
         }

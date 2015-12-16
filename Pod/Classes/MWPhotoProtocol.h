@@ -59,7 +59,6 @@
 
 // Video
 @property (nonatomic) BOOL isVideo;
-
 - (void)getVideoURL:(void (^)(NSURL *url))completion;
 
 // Return a caption string to be displayed over the image

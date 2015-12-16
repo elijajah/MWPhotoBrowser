@@ -10,7 +10,6 @@
 
 @optional
 + (void)beforeEach;
-
 + (void)afterEach;
 
 @end

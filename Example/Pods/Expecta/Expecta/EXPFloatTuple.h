@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface EXPFloatTuple : NSObject
-{
+@interface EXPFloatTuple : NSObject {
     float *_values;
     size_t _size;
 }

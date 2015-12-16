@@ -14,46 +14,52 @@
 
 @implementation FBSnapshotTestCase
 {
-    FBSnapshotTestController *_snapshotController;
+  FBSnapshotTestController *_snapshotController;
 }
 
-- (void)setUp {
-    [super setUp];
-    _snapshotController = [[FBSnapshotTestController alloc] initWithTestName:NSStringFromClass([self class])];
+- (void)setUp
+{
+  [super setUp];
+  _snapshotController = [[FBSnapshotTestController alloc] initWithTestName:NSStringFromClass([self class])];
 }
 
-- (void)tearDown {
-    _snapshotController = nil;
-    [super tearDown];
+- (void)tearDown
+{
+  _snapshotController = nil;
+  [super tearDown];
 }
 
-- (BOOL)recordMode {
-    return _snapshotController.recordMode;
+- (BOOL)recordMode
+{
+  return _snapshotController.recordMode;
 }
 
-- (void)setRecordMode:(BOOL)recordMode {
-    NSAssert1(_snapshotController, @"%s cannot be called before [super setUp]", __FUNCTION__);
-    _snapshotController.recordMode = recordMode;
+- (void)setRecordMode:(BOOL)recordMode
+{
+  NSAssert1(_snapshotController, @"%s cannot be called before [super setUp]", __FUNCTION__);
+  _snapshotController.recordMode = recordMode;
 }
 
 - (BOOL)compareSnapshotOfLayer:(CALayer *)layer
       referenceImagesDirectory:(NSString *)referenceImagesDirectory
                     identifier:(NSString *)identifier
-                         error:(NSError **)errorPtr {
-    return [self _compareSnapshotOfViewOrLayer:layer
-                      referenceImagesDirectory:referenceImagesDirectory
-                                    identifier:identifier
-                                         error:errorPtr];
+                         error:(NSError **)errorPtr
+{
+  return [self _compareSnapshotOfViewOrLayer:layer
+                    referenceImagesDirectory:referenceImagesDirectory
+                                  identifier:identifier
+                                       error:errorPtr];
 }
 
 - (BOOL)compareSnapshotOfView:(UIView *)view
      referenceImagesDirectory:(NSString *)referenceImagesDirectory
                    identifier:(NSString *)identifier
-                        error:(NSError **)errorPtr {
-    return [self _compareSnapshotOfViewOrLayer:view
-                      referenceImagesDirectory:referenceImagesDirectory
-                                    identifier:identifier
-                                         error:errorPtr];
+                        error:(NSError **)errorPtr
+{
+  return [self _compareSnapshotOfViewOrLayer:view
+                    referenceImagesDirectory:referenceImagesDirectory
+                                  identifier:identifier
+                                       error:errorPtr];
 }
 
 #pragma mark -
@@ -62,12 +68,13 @@
 - (BOOL)_compareSnapshotOfViewOrLayer:(id)viewOrLayer
              referenceImagesDirectory:(NSString *)referenceImagesDirectory
                            identifier:(NSString *)identifier
-                                error:(NSError **)errorPtr {
-    _snapshotController.referenceImagesDirectory = referenceImagesDirectory;
-    return [_snapshotController compareSnapshotOfViewOrLayer:viewOrLayer
-                                                    selector:self.invocation.selector
-                                                  identifier:identifier
-                                                       error:errorPtr];
+                                error:(NSError **)errorPtr
+{
+  _snapshotController.referenceImagesDirectory = referenceImagesDirectory;
+  return [_snapshotController compareSnapshotOfViewOrLayer:viewOrLayer
+                                                  selector:self.invocation.selector
+                                                identifier:identifier
+                                                     error:errorPtr];
 }
 
 @end

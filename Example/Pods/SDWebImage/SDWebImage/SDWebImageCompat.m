@@ -12,12 +12,11 @@
 #error SDWebImage is ARC only. Either turn on ARC for the project or use -fobjc-arc flag
 #endif
 
-inline UIImage *SDScaledImageForKey(NSString *key, UIImage *image)
-{
+inline UIImage *SDScaledImageForKey(NSString *key, UIImage *image) {
     if (!image) {
         return nil;
     }
-
+    
     if ([image.images count] > 0) {
         NSMutableArray *scaledImages = [NSMutableArray array];
 

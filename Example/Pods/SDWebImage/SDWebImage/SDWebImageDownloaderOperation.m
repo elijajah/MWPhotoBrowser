@@ -31,8 +31,7 @@
 
 @end
 
-@implementation SDWebImageDownloaderOperation
-{
+@implementation SDWebImageDownloaderOperation {
     size_t width, height;
     UIImageOrientation orientation;
     BOOL responseFromCached;
@@ -71,9 +70,9 @@
 
 #if TARGET_OS_IPHONE && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_4_0
         if ([self shouldContinueWhenAppEntersBackground]) {
-            __weak __typeof__(self) wself = self;
+            __weak __typeof__ (self) wself = self;
             self.backgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-                __strong __typeof(wself) sself = wself;
+                __strong __typeof (wself) sself = wself;
 
                 if (sself) {
                     [sself cancel];
@@ -328,18 +327,19 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
     SDWebImageDownloaderCompletedBlock completionBlock = self.completedBlock;
-    @synchronized (self) {
+    @synchronized(self) {
         CFRunLoopStop(CFRunLoopGetCurrent());
         self.thread = nil;
         self.connection = nil;
         [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadStopNotification object:nil];
     }
-
+    
     if (![[NSURLCache sharedURLCache] cachedResponseForRequest:_request]) {
         responseFromCached = NO;
     }
-
-    if (completionBlock) {
+    
+    if (completionBlock)
+    {
         if (self.options & SDWebImageDownloaderIgnoreCachedResponse && responseFromCached) {
             completionBlock(nil, nil, nil, YES);
         }
@@ -347,7 +347,7 @@
             UIImage *image = [UIImage sd_imageWithData:self.imageData];
             NSString *key = [[SDWebImageManager sharedManager] cacheKeyForURL:self.request.URL];
             image = [self scaledImageForKey:key image:image];
-
+            
             // Do not force decoding animated GIFs
             if (!image.images) {
                 image = [UIImage decodedImageWithImage:image];
@@ -394,7 +394,7 @@
     return self.shouldUseCredentialStorage;
 }
 
-- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
     if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
         NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
         [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];

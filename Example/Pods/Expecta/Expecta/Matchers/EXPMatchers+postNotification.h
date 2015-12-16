@@ -1,7 +1,4 @@
 #import "Expecta.h"
 
-EXPMatcherInterface(postNotification, (id
-        expectedNotification));
-
-EXPMatcherInterface(notify, (id
-        expectedNotification));
+EXPMatcherInterface(postNotification, (id expectedNotification));
+EXPMatcherInterface(notify, (id expectedNotification));
