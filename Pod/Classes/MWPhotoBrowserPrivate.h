@@ -76,6 +76,30 @@
 // Properties
 @property (nonatomic) UIActivityViewController *activityViewController;
 
+@property (nonatomic) BOOL zoomPhotosToFill;
+
+@property (nonatomic) BOOL displayNavArrows;
+
+@property (nonatomic) BOOL displayActionButton;
+
+@property (nonatomic) BOOL startOnGrid;
+
+@property (nonatomic) BOOL enableSwipeToDismiss;
+
+@property (nonatomic) BOOL enableGrid;
+
+@property (nonatomic) BOOL alwaysShowControls;
+
+@property (nonatomic) NSUInteger delayToHideElements;
+
+@property (nonatomic) BOOL displaySelectionButtons;
+
+// Customise image selection icons as they are the only icons with a colour tint
+// Icon should be located in the app's main bundle
+@property (nonatomic, strong) NSString *customImageSelectedIconName;
+
+@property (nonatomic, strong) NSString *customImageSelectedSmallIconName;
+
 // Layout
 - (void)layoutVisiblePages;
 - (void)performLayout;
