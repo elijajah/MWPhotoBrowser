@@ -1,3 +1,4 @@
 #import "Expecta.h"
 
-EXPMatcherInterface(respondTo, (SEL expected));
+EXPMatcherInterface(respondTo, (SEL
+        expected));

@@ -23,24 +23,32 @@
 @protocol MWPhotoBrowserDelegate <NSObject>
 
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser;
+
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index;
 
 @optional
 
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index;
+
 - (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index;
+
 - (NSString *)photoBrowser:(MWPhotoBrowser *)photoBrowser titleForPhotoAtIndex:(NSUInteger)index;
+
 - (void)photoBrowser:(MWPhotoBrowser *)photoBrowser didDisplayPhotoAtIndex:(NSUInteger)index;
+
 - (void)photoBrowser:(MWPhotoBrowser *)photoBrowser actionButtonPressedForPhotoAtIndex:(NSUInteger)index;
+
 - (BOOL)photoBrowser:(MWPhotoBrowser *)photoBrowser isPhotoSelectedAtIndex:(NSUInteger)index;
+
 - (void)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index selectedChanged:(BOOL)selected;
+
 - (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser;
 
 @end
 
 @interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
 
-@property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id <MWPhotoBrowserDelegate> delegate;
 @property (nonatomic) BOOL zoomPhotosToFill;
 @property (nonatomic) BOOL displayNavArrows;
 @property (nonatomic) BOOL displayActionButton;
@@ -60,6 +68,7 @@
 
 // Init
 - (id)initWithPhotos:(NSArray *)photosArray;
+
 - (id)initWithDelegate:(id <MWPhotoBrowserDelegate>)delegate;
 
 // Reloads the photo browser and refetches data
@@ -70,6 +79,7 @@
 
 // Navigation
 - (void)showNextPhotoAnimated:(BOOL)animated;
+
 - (void)showPreviousPhotoAnimated:(BOOL)animated;
 
 @end

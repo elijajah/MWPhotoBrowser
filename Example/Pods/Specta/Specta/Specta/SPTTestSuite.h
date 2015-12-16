@@ -1,9 +1,8 @@
 #import <Foundation/Foundation.h>
 
 @class
-  SPTExample
-, SPTExampleGroup
-;
+SPTExample
+, SPTExampleGroup;
 
 @interface SPTTestSuite : NSObject
 
@@ -16,6 +15,7 @@
 @property (nonatomic) BOOL hasFocusedExamples;
 
 - (SPTExampleGroup *)currentGroup;
+
 - (void)compile;
 
 @end

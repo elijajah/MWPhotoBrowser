@@ -24,11 +24,15 @@
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root;
 
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name focused:(BOOL)focused;
+
 - (SPTExample *)addExampleWithName:(NSString *)name callSite:(SPTCallSite *)callSite focused:(BOOL)focused block:(SPTVoidBlock)block;
 
 - (void)addBeforeAllBlock:(SPTVoidBlock)block;
+
 - (void)addAfterAllBlock:(SPTVoidBlock)block;
+
 - (void)addBeforeEachBlock:(SPTVoidBlock)block;
+
 - (void)addAfterEachBlock:(SPTVoidBlock)block;
 
 - (NSArray *)compileExamplesWithStack:(NSArray *)stack;

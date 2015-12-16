@@ -1,3 +1,3 @@
 #import "Expecta.h"
 
-EXPMatcherInterface(conformTo, (Protocol *expected));
+EXPMatcherInterface(conformTo, (Protocol * expected));

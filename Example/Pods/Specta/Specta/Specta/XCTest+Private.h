@@ -25,6 +25,7 @@
 @interface _XCTestDriverTestObserver : NSObject <XCTestObservation>
 
 - (void)stopObserving;
+
 - (void)startObserving;
 
 @end
@@ -35,6 +36,7 @@
 @interface XCTestCase ()
 
 - (_XCTestCaseImplementation *)internalImplementation;
+
 - (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception;
 
 @end

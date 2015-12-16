@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
 
-@interface EXPUnsupportedObject : NSObject {
-  NSString *_type;
+@interface EXPUnsupportedObject : NSObject
+{
+    NSString *_type;
 }
 
 @property (nonatomic, retain) NSString *type;

@@ -1,3 +1,4 @@
 #import "Expecta.h"
 
-EXPMatcherInterface(endWith, (id expected));
+EXPMatcherInterface(endWith, (id
+        expected));

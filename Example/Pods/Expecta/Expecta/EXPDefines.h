@@ -10,8 +10,11 @@
 #define Expecta_EXPDefines_h
 
 typedef void (^EXPBasicBlock)();
+
 typedef id (^EXPIdBlock)();
+
 typedef BOOL (^EXPBoolBlock)();
+
 typedef NSString *(^EXPStringBlock)();
 
 #endif

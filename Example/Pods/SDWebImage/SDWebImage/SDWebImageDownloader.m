@@ -8,7 +8,6 @@
 
 #import "SDWebImageDownloader.h"
 #import "SDWebImageDownloaderOperation.h"
-#import <ImageIO/ImageIO.h>
 
 NSString *const SDWebImageDownloadStartNotification = @"SDWebImageDownloadStartNotification";
 NSString *const SDWebImageDownloadStopNotification = @"SDWebImageDownloadStopNotification";
@@ -152,11 +151,11 @@ static NSString *const kCompletedCallbackKey = @"completed";
                                                                      if (!sself) return;
                                                                      [sself removeCallbacksForURL:url];
                                                                  }];
-        
+
         if (wself.username && wself.password) {
             operation.credential = [NSURLCredential credentialWithUser:wself.username password:wself.password persistence:NSURLCredentialPersistenceForSession];
         }
-        
+
         if (options & SDWebImageDownloaderHighPriority) {
             operation.queuePriority = NSOperationQueuePriorityHigh;
         } else if (options & SDWebImageDownloaderLowPriority) {

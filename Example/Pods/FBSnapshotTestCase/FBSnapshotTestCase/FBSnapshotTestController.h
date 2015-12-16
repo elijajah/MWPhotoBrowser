@@ -11,12 +11,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, FBSnapshotTestControllerErrorCode) {
-  FBSnapshotTestControllerErrorCodeUnknown,
-  FBSnapshotTestControllerErrorCodeNeedsRecord,
-  FBSnapshotTestControllerErrorCodePNGCreationFailed,
-  FBSnapshotTestControllerErrorCodeImagesDifferentSizes,
-  FBSnapshotTestControllerErrorCodeImagesDifferent,
+typedef NS_ENUM(NSInteger, FBSnapshotTestControllerErrorCode)
+{
+    FBSnapshotTestControllerErrorCodeUnknown,
+    FBSnapshotTestControllerErrorCodeNeedsRecord,
+    FBSnapshotTestControllerErrorCodePNGCreationFailed,
+    FBSnapshotTestControllerErrorCodeImagesDifferentSizes,
+    FBSnapshotTestControllerErrorCodeImagesDifferent,
 };
 /**
  Errors returned by the methods of FBSnapshotTestController use this domain.

@@ -33,59 +33,63 @@
 @protocol MBProgressHUDDelegate;
 
 
-typedef NS_ENUM(NSInteger, MBProgressHUDMode) {
-	/** Progress is shown using an UIActivityIndicatorView. This is the default. */
-	MBProgressHUDModeIndeterminate,
-	/** Progress is shown using a round, pie-chart like, progress view. */
-	MBProgressHUDModeDeterminate,
-	/** Progress is shown using a horizontal progress bar */
-	MBProgressHUDModeDeterminateHorizontalBar,
-	/** Progress is shown using a ring-shaped progress view. */
-	MBProgressHUDModeAnnularDeterminate,
-	/** Shows a custom view */
-	MBProgressHUDModeCustomView,
-	/** Shows only labels */
-	MBProgressHUDModeText
+typedef NS_ENUM(NSInteger, MBProgressHUDMode)
+{
+    /** Progress is shown using an UIActivityIndicatorView. This is the default. */
+            MBProgressHUDModeIndeterminate,
+    /** Progress is shown using a round, pie-chart like, progress view. */
+            MBProgressHUDModeDeterminate,
+    /** Progress is shown using a horizontal progress bar */
+            MBProgressHUDModeDeterminateHorizontalBar,
+    /** Progress is shown using a ring-shaped progress view. */
+            MBProgressHUDModeAnnularDeterminate,
+    /** Shows a custom view */
+            MBProgressHUDModeCustomView,
+    /** Shows only labels */
+            MBProgressHUDModeText
 };
 
-typedef NS_ENUM(NSInteger, MBProgressHUDAnimation) {
-	/** Opacity animation */
-	MBProgressHUDAnimationFade,
-	/** Opacity + scale animation */
-	MBProgressHUDAnimationZoom,
-	MBProgressHUDAnimationZoomOut = MBProgressHUDAnimationZoom,
-	MBProgressHUDAnimationZoomIn
+typedef NS_ENUM(NSInteger, MBProgressHUDAnimation)
+{
+    /** Opacity animation */
+            MBProgressHUDAnimationFade,
+    /** Opacity + scale animation */
+            MBProgressHUDAnimationZoom,
+    MBProgressHUDAnimationZoomOut = MBProgressHUDAnimationZoom,
+    MBProgressHUDAnimationZoomIn
 };
 
 
 #ifndef MB_INSTANCETYPE
 #if __has_feature(objc_instancetype)
-	#define MB_INSTANCETYPE instancetype
+#define MB_INSTANCETYPE instancetype
 #else
-	#define MB_INSTANCETYPE id
+#define MB_INSTANCETYPE id
 #endif
 #endif
 
 #ifndef MB_STRONG
 #if __has_feature(objc_arc)
-	#define MB_STRONG strong
+#define MB_STRONG strong
 #else
-	#define MB_STRONG retain
+#define MB_STRONG retain
 #endif
 #endif
 
 #ifndef MB_WEAK
 #if __has_feature(objc_arc_weak)
-	#define MB_WEAK weak
+#define MB_WEAK weak
 #elif __has_feature(objc_arc)
-	#define MB_WEAK unsafe_unretained
+#define MB_WEAK unsafe_unretained
 #else
-	#define MB_WEAK assign
+#define MB_WEAK assign
 #endif
 #endif
 
 #if NS_BLOCKS_AVAILABLE
+
 typedef void (^MBProgressHUDCompletionBlock)();
+
 #endif
 
 
@@ -267,7 +271,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
  * @see completionBlock
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue
-		  completionBlock:(MBProgressHUDCompletionBlock)completion;
+     completionBlock:(MBProgressHUDCompletionBlock)completion;
 
 /**
  * A block that gets called after the HUD was completely hidden.
@@ -301,7 +305,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
  *
  * @see MBProgressHUDDelegate
  */
-@property (MB_WEAK) id<MBProgressHUDDelegate> delegate;
+@property (MB_WEAK) id <MBProgressHUDDelegate> delegate;
 
 /** 
  * An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit
@@ -392,22 +396,22 @@ typedef void (^MBProgressHUDCompletionBlock)();
 /** 
  * Font to be used for the main label. Set this property if the default is not adequate. 
  */
-@property (MB_STRONG) UIFont* labelFont;
+@property (MB_STRONG) UIFont *labelFont;
 
 /**
  * Color to be used for the main label. Set this property if the default is not adequate.
  */
-@property (MB_STRONG) UIColor* labelColor;
+@property (MB_STRONG) UIColor *labelColor;
 
 /**
  * Font to be used for the details label. Set this property if the default is not adequate.
  */
-@property (MB_STRONG) UIFont* detailsLabelFont;
+@property (MB_STRONG) UIFont *detailsLabelFont;
 
 /** 
  * Color to be used for the details label. Set this property if the default is not adequate.
  */
-@property (MB_STRONG) UIColor* detailsLabelColor;
+@property (MB_STRONG) UIColor *detailsLabelColor;
 
 /**
  * The color of the activity indicator. Defaults to [UIColor whiteColor]
@@ -457,7 +461,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
 /**
  * A progress view for showing definite progress by filling up a circle (pie chart).
  */
-@interface MBRoundProgressView : UIView 
+@interface MBRoundProgressView : UIView
 
 /**
  * Progress (0.0 to 1.0)

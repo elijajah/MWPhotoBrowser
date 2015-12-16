@@ -13,6 +13,7 @@
 @interface Expecta : NSObject
 
 + (NSTimeInterval)asynchronousTestTimeout;
+
 + (void)setAsynchronousTestTimeout:(NSTimeInterval)timeout;
 
 @end

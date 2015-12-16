@@ -39,7 +39,7 @@
         // Set noneSkipFirst.
         bitmapInfo |= kCGImageAlphaNoneSkipFirst;
     }
-            // Some PNGs tell us they have alpha but only 3 components. Odd.
+        // Some PNGs tell us they have alpha but only 3 components. Odd.
     else if (!anyNonAlpha && CGColorSpaceGetNumberOfComponents(colorSpace) == 3) {
         // Unset the old alpha info.
         bitmapInfo &= ~kCGBitmapAlphaInfoMask;
