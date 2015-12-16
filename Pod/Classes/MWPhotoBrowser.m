@@ -89,7 +89,6 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     _backgroundColor = [UIColor blackColor];
     _progressColor = nil;
     _imageCellBackgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
-    _preLoadNum = 1;
 
     self.automaticallyAdjustsScrollViewInsets = NO;
 
