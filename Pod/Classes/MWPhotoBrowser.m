@@ -181,7 +181,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // Swipe to dismiss
     if (_enableSwipeToDismiss) {
         UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(doneButtonPressed:)];
-        swipeGesture.direction = UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionUp;
+        swipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
         [self.view addGestureRecognizer:swipeGesture];
     }
     
