@@ -32,7 +32,6 @@
 	NSUInteger _pageIndexBeforeRotation;
 	
 	// Navigation & controls
-	NSTimer *_controlVisibilityTimer;
 	UIBarButtonItem *_previousButton, *_nextButton, *_actionButton, *_doneButton;
     MBProgressHUD *_progressHUD;
     
@@ -90,8 +89,6 @@
 
 @property (nonatomic) BOOL alwaysShowControls;
 
-@property (nonatomic) NSUInteger delayToHideElements;
-
 @property (nonatomic) BOOL displaySelectionButtons;
 
 // Customise image selection icons as they are the only icons with a colour tint
@@ -139,8 +136,6 @@
 - (void)hideGrid;
 
 // Controls
-- (void)cancelControlHiding;
-- (void)hideControlsAfterDelay;
 - (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated permanent:(BOOL)permanent;
 - (void)toggleControls;
 - (BOOL)areControlsHidden;
