@@ -558,6 +558,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
     // Get data
     NSUInteger numberOfPhotos = [self numberOfPhotos];
+    if(numberOfPhotos == 0) {
+        [self doneButtonPressed:nil];
+    }
     [self releaseAllUnderlyingPhotos:YES];
     [_photos removeAllObjects];
     [_thumbPhotos removeAllObjects];
